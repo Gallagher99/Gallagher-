@@ -4,8 +4,8 @@ Const datiGallagher = {
     'mercenario': ["Il Mercenario", "Storia: Credevo che servire le casate nobili ci desse una dignità. Mi sbagliavo. Eravamo solo cani da guardia con lo stemma lucido. A trent'anni, il mondo mi ha ricordato chi ero davvero. Un'imboscata di quelle sporche. Eravamo circondati, il metallo strideva ovunque. Ho guardato i miei compagni, quelli con cui avevo giurato di morire... e ho visto solo le loro schiene mentre scappavano. Mi hanno venduto per cinque minuti di vita in più. Mi hanno lasciato lì a farmi catturare come un animale. Ma non sapevano che un animale messo all'angolo morde più forte. Sono scappato usando la loro stessa sporca furbizia e ho voltato le spalle a quel passato. Ho tenuto il nome delle Lame d'Argento solo per sputarci sopra ogni volta che lo sento.", "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446391/mercenario_i3kbnk.png"],
     'anziano': ["L'Anziano", `La Ragazza e il Simbolo: Un Momento di Respiro...`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446387/anziano_bbjqne.png"],
     'tatuaggio': ["Segni e Tatuaggi", `Porta un tatuaggio sulla spalla destra...`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446411/tatuaggio_vspdxd.jpg"],
-    'aspetto': ["Aspetto Fisico", `Corporatura: ...`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo_znoads.png"],
-    'carattere': ["Il Carattere", `L’Uomo del "Vero e Falso": ...`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo2_ysvgil.png"]
+    'aspetto': ["Aspetto Fisico", `Corporatura: È un uomo...`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo_znoads.png"],
+    'carattere': ["Il Carattere", `L’Uomo del "Vero e Falso"...`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo2_ysvgil.png"]
 };
 
 function apri(chiave) {
