@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Cronache di Gallagher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header-box">
+        <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446388/cornice_o16gkh.png" class="header-cornice">
+        <h1>Forgiato dal fango, condannato a ricordare</h1>
+    </div>
+
+    <div class="sezione-personaggi">
+        <div class="ritratto-box" style="background-image: url('https://res.cloudinary.com/dqoncufhc/image/upload/v1768446389/giovane_fw2eih.png');" onclick="apri('bambino')"></div>
+        <div class="ritratto-box" style="background-image: url('https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ragazzo_faq665.png');" onclick="apri('ragazzo')"></div>
+        <div class="ritratto-box" style="background-image: url('https://res.cloudinary.com/dqoncufhc/image/upload/v1768446391/mercenario_i3kbnk.png');" onclick="apri('mercenario')"></div>
+        <div class="ritratto-box" style="background-image: url('https://res.cloudinary.com/dqoncufhc/image/upload/v1768446387/anziano_bbjqne.png');" onclick="apri('anziano')"></div>
+    </div>
+
+    <div class="area-targhette">
+        <input type="text" class="targhetta-vetrata" value="Il bambino" readonly>
+        <input type="text" class="targhetta-vetrata" value="Il Ragazzo" readonly>
+        <input type="text" class="targhetta-vetrata" value="Il Mercenario" readonly>
+        <input type="text" class="targhetta-vetrata" value="L'Anziano" readonly>
+    </div>
+
+    <div class="mensola">
+        <div class="contenitore-bottiglie">
+            <button class="bottone-bottiglia" onclick="apri('tatuaggio')">
+                <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446386/birra_jd3gh5.png" class="bottiglia">
+            </button>
+            <button class="bottone-bottiglia" onclick="apri('aspetto')">
+                <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/rum_pybdx9.png" class="bottiglia">
+            </button>
+            <button class="bottone-bottiglia" onclick="apri('carattere')">
+                <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446412/whisky_eedcq2.png" class="bottiglia">
+            </button>
+        </div>
+        <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446412/tavolo_qxakmq.png" class="tavolo-base">
+    </div>
+
+    <div id="miuModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="chiudi()">&times;</span>
+            <h2 id="titolo-storia"></h2>
+            <div style="text-align:center;"><img id="img-modale" class="img-storia"></div>
+            <div id="controllo-tris" style="display:none; text-align:center; margin: 10px 0;">
+                <input type="range" id="slider-tris" min="40" max="200" value="80" oninput="regolaTris(this.value)">
+            </div>
+            <div id="contenitore-tris" style="display:none; justify-content:center; align-items:center; gap:0; margin-bottom:15px;">
+                <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446390/madre_pz7exh.jpg" class="foto-tris">
+                <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446386/bambino_vgddck.jpg" class="foto-tris">
+                <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446403/padre_ebpoxy.jpg" class="foto-tris">
+            </div>
+            <div id="testo-storia"></div>
+        </div>
+    </div>
+
+    <div id="contenitore-audio-standard">
+        <audio id="canzone-sottofondo" controls loop>
+            <source src="https://res.cloudinary.com/dqoncufhc/video/upload/v1768446388/canzone_c7icdl.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
