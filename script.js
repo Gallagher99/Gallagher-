@@ -19,8 +19,8 @@ Gallagher: (Fisso le braci, sentendo la malinconia pulsarmi nelle tempie come un
 Rin: «È una storia della mia gente, di prima che arrivassimo nell'Aengard. La chiamano la Maschera dei Cacciatori Eterni. È una vecchia leggenda che mi raccontavano per farmi stare buona... vuoi sentirla?»
 Gallagher: (Alzo appena lo sguardo, una scintilla di curiosità che vince sulla stanchezza) «Sembra interessante. Di cosa si tratta?»
 Rin: (Inizia a parlare con una voce bassa, quasi ipnotica) «Narra di un lupo e un'agnella. C'era una volta un uomo pallido, dai capelli corvini, che era molto solo. Tutti lo schivavano perché incontrarlo significava la fine. Così, per avere per sempre un amico, ha preso un'ascia e si è diviso in due. Proprio nel mezzo. Così avrebbe avuto per sempre un amico.»
-Gallagher: (Resto immobile, sentendo un brivido scorrermi lungo la schiena che non c'entra col freddo) «Un'ascia... sembra un'assurdità, eppure... c'è qualcosa di familiare in questo schifo.» (Sospiro).
-Rin: «Lo pensavo anche io. Poi ho capito. Rappresentano la morte. L'Agnella dona una fine serena ai valorosi. Il Lupo, invece... il Lupo sbrana i codardi. Quelli che passano la via a fuggire da se stessi.»
+Gallagher: (Resto immobile, sentendo un brivido scorrermi lungo la schiena che non centro col freddo) «Un'ascia... sembra un'assurdità, eppure... c'è qualcosa di familiare in questo schifo.» (Sospiro).
+Rin: «Lo pensavo anche io. Poi ho capito. Rappresentano la morte. L'Agnella dona una fine serena ai valorosi. Il Lupo, invece... il Lupo sbrana i codardi. Quelli che passano la vita a fuggire da se stessi.»
 Gallagher: (Stringo i pugni, pensando alle Lame d'Argento e al fango che ho mangiato per sopravvivere) «In effetti... quella storia rappresenta me. Sono io quell'uomo spaccato a metà, che cerca di non farsi mangiare dai suoi stessi pezzi.» (Pensa pensieroso).
 Rin: (Mi sorride, ed è l'unica cosa pulita che vedo da mesi) «Non ci pensare, Gallagher. Tutti abbiamo qualcosa per cui lottare, finché il cuore batte ancora.»
 Gallagher: (La guardo e, per un istante, la stanchezza sembra meno pesante) «Hai ragione... maledizione, hai ragione.» (La attiro a me, sentendomi goffo e stanco come un vecchio cane che ha trovato un po' di riparo) «Farà un freddo cane stanotte. Scaldati con me... non ho voglia di svegliarmi gelato e solo.» (Lo dico quasi a bassa voce, con un briciolo di imbarazzo).
@@ -40,21 +40,23 @@ Fedeltà ai Propri Valori (non alle leggi): Non segue le leggi degli uomini, ma 
 L'Osservatore Silenzioso: Preferisce stare nell'ombra, ai margini della scena. Non vuole essere il protagonista, ma è colui che tira i fili o che "pulisce i disastri" quando tutto è finito.`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo2_ysvgil.png"]
 };
 
+// --- FUNZIONI DI GESTIONE ---
 function apri(chiave) {
-    var d = datiGallagher[chiave];
+    const d = datiGallagher[chiave];
     if (!d) return;
 
-    var titolo = d[0];
-    var testo = d[1];
-    var immagine = d[2];
+    const titolo = d[0];
+    const testo = d[1];
+    const immagine = d[2];
 
     document.getElementById('titolo-storia').innerText = titolo;
     document.getElementById('testo-storia').innerText = testo;
-    var f = document.getElementById('img-modale');
+    
+    const f = document.getElementById('img-modale');
     if(immagine) { f.src = immagine; f.style.display = "block"; } else { f.style.display = "none"; }
     
-    var tris = document.getElementById('contenitore-tris');
-    var controllo = document.getElementById('controllo-tris');
+    const tris = document.getElementById('contenitore-tris');
+    const controllo = document.getElementById('controllo-tris');
     
     if(titolo === 'Il Bambino') {
         tris.style.display = "flex"; controllo.style.display = "none";
@@ -71,7 +73,7 @@ function apri(chiave) {
     }
     else if(titolo === "Il Ragazzo" || titolo === "Il Mercenario") {
         tris.style.display = "flex"; controllo.style.display = "none";
-        var fotoSrc = (titolo === "Il Ragazzo") ? "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446403/orfano_yd4ved.png" : "https://res.cloudinary.com/dqoncufhc/image/upload/v1768535131/soldato_ctg4bz.png";
+        const fotoSrc = (titolo === "Il Ragazzo") ? "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446403/orfano_yd4ved.png" : "https://res.cloudinary.com/dqoncufhc/image/upload/v1768535131/soldato_ctg4bz.png";
         tris.innerHTML = `<img src="${fotoSrc}" class="foto-tris" style="width:200px; height:auto; margin-top: 10px;">`;
     }
     else { tris.style.display = "none"; controllo.style.display = "none"; }
@@ -79,16 +81,28 @@ function apri(chiave) {
     document.getElementById('miuModal').style.display = "block";
 }
 
-function regolaTris(valore) { var foto = document.querySelectorAll('.foto-tris'); foto.forEach(img => { img.style.width = valore + "px"; }); }
-function chiudi() { document.getElementById('miuModal').style.display = "none"; }
-window.onclick = function(event) { if (event.target == document.getElementById('miuModal')) { chiudi(); } }
+function chiudi() { 
+    document.getElementById('miuModal').style.display = "none"; 
+}
 
+window.onclick = function(event) { 
+    if (event.target == document.getElementById('miuModal')) { chiudi(); } 
+};
+
+// --- GESTIONE AUDIO E EVENTI ---
 const audioClick = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/click_vtol4d.wav');
+const audioBottiglie = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/bottiglie_yxfq8d.wav');
+
 document.querySelectorAll('.ritratto-box').forEach(v => { 
-    v.addEventListener('click', () => { audioClick.currentTime = 0; audioClick.play(); }); 
+    v.addEventListener('click', () => { 
+        audioClick.currentTime = 0; 
+        audioClick.play(); 
+    }); 
 });
 
-const audioBottiglie = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/bottiglie_yxfq8d.wav');
 document.querySelectorAll('.bottone-bottiglia').forEach(b => { 
-    b.addEventListener('click', () => { audioBottiglie.currentTime = 0; audioBottiglie.play(); });
+    b.addEventListener('click', () => { 
+        audioBottiglie.currentTime = 0; 
+        audioBottiglie.play(); 
+    }); 
 });
