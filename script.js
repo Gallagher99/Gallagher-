@@ -19,7 +19,7 @@ Gallagher: (Fisso le braci, sentendo la malinconia pulsarmi nelle tempie come un
 Rin: «È una storia della mia gente, di prima che arrivassimo nell'Aengard. La chiamano la Maschera dei Cacciatori Eterni. È una vecchia leggenda che mi raccontavano per farmi stare buona... vuoi sentirla?»
 Gallagher: (Alzo appena lo sguardo, una scintilla di curiosità che vince sulla stanchezza) «Sembra interessante. Di cosa si tratta?»
 Rin: (Inizia a parlare con una voce bassa, quasi ipnotica) «Narra di un lupo e un'agnella. C'era una volta un uomo pallido, dai capelli corvini, che era molto solo. Tutti lo schivavano perché incontrarlo significava la fine. Così, per avere per sempre un amico, ha preso un'ascia e si è diviso in due. Proprio nel mezzo. Così avrebbe avuto per sempre un amico.»
-Gallagher: (Resto immobile, sentendo un brivido scorrermi lungo la schiena che non centro col freddo) «Un'ascia... sembra un'assurdità, eppure... c'è qualcosa di familiare in questo schifo.» (Sospiro).
+Gallagher: (Resto immobile, sentendo un brivido scorrermi lungo la schiena che non c'entra col freddo) «Un'ascia... sembra un'assurdità, eppure... c'è qualcosa di familiare in questo schifo.» (Sospiro).
 Rin: «Lo pensavo anche io. Poi ho capito. Rappresentano la morte. L'Agnella dona una fine serena ai valorosi. Il Lupo, invece... il Lupo sbrana i codardi. Quelli che passano la vita a fuggire da se stessi.»
 Gallagher: (Stringo i pugni, pensando alle Lame d'Argento e al fango che ho mangiato per sopravvivere) «In effetti... quella storia rappresenta me. Sono io quell'uomo spaccato a metà, che cerca di non farsi mangiare dai suoi stessi pezzi.» (Pensa pensieroso).
 Rin: (Mi sorride, ed è l'unica cosa pulita che vedo da mesi) «Non ci pensare, Gallagher. Tutti abbiamo qualcosa per cui lottare, finché il cuore batte ancora.»
@@ -30,7 +30,7 @@ Gallagher: (Chiudo gli occhi, sentendo il calore del suo corpo contro il mio) «
     'aspetto': ["Aspetto Fisico", `Corporatura: È un uomo dall'ossatura robusta e dalla presenza imponente, ma non massiccia in senso atletico. La sua figura trasmette un senso di pesantezza e solidità, come quella di un veterano che ha passato anni sotto le armi o a svolgere lavori logoranti. Ha una postura leggermente incurvata, tipica di chi porta un peso invisibile sulle spalle.
 Altezza: È decisamente alto, sopra la media, il che lo rende una figura che non passa inosservata nonostante cerchi di confondersi tra la folla o nell'ombra.
 Viso e Tratti Sommatici: Il volto è segnato e stanco. Ha lineamenti decisi ma appesantiti da occhiaie profonde e una perenne espressione di disillusione. La mascella è spesso coperta da una barba incolta e trascurata (una "stubble" di più giorni) che accentua il suo aspetto trasandato e ruvido.
-Capelli: I capelli sono scuri, corvini, e spesso appaiono spettinati o poco curati, cadendo sul viso in modo disordinato. Questo contribuisce alla sua immagine di uomo che ha smesso di preoccuparsi delle apparenze da molto tempo.
+Capelli: I capelli sono scuri, corvini, e spesso appeared spettinati o poco curati, cadendo sul viso in modo disordinato. Questo contribuisce alla sua immagine di uomo che ha smesso di preoccuparsi delle apparenze da molto tempo.
 Occhi: Lo sguardo è il suo tratto più distintivo. Sono occhi carichi di malinconia e stanchezza, che sembrano aver visto troppo. Raramente mostrano scintille di vitalità; solitamente sono socchiusi, vigili ma privi di entusiasmo.`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo_znoads.png"],
     'carattere': ["Il Carattere", `L’Uomo del "Vero e Falso": Gallagher è intrinsecamente un bugiardo, ma non per malvagità. Lui stesso si definisce un "impasto di bugie". La sua natura è quella di un uomo che maschera la verità per proteggere segreti più grandi o semplicemente perché la realtà è troppo dolorosa da gestire.
 Stanchezza Esistenziale: Il tratto più profondo dell'originale è il suo essere "stanco del mondo". Non è la stanchezza di chi ha sonno, ma di chi ha vissuto troppo, ha visto troppe civiltà cadere e troppe promesse infrante. Questo lo rende estremamente cinico e disilluso.
@@ -40,23 +40,21 @@ Fedeltà ai Propri Valori (non alle leggi): Non segue le leggi degli uomini, ma 
 L'Osservatore Silenzioso: Preferisce stare nell'ombra, ai margini della scena. Non vuole essere il protagonista, ma è colui che tira i fili o che "pulisce i disastri" quando tutto è finito.`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo2_ysvgil.png"]
 };
 
-// --- FUNZIONI DI GESTIONE ---
 function apri(chiave) {
-    const d = datiGallagher[chiave];
+    var d = datiGallagher[chiave];
     if (!d) return;
 
-    const titolo = d[0];
-    const testo = d[1];
-    const immagine = d[2];
+    var titolo = d[0];
+    var testo = d[1];
+    var immagine = d[2];
 
     document.getElementById('titolo-storia').innerText = titolo;
     document.getElementById('testo-storia').innerText = testo;
-    
-    const f = document.getElementById('img-modale');
+    var f = document.getElementById('img-modale');
     if(immagine) { f.src = immagine; f.style.display = "block"; } else { f.style.display = "none"; }
     
-    const tris = document.getElementById('contenitore-tris');
-    const controllo = document.getElementById('controllo-tris');
+    var tris = document.getElementById('contenitore-tris');
+    var controllo = document.getElementById('controllo-tris');
     
     if(titolo === 'Il Bambino') {
         tris.style.display = "flex"; controllo.style.display = "none";
@@ -73,7 +71,7 @@ function apri(chiave) {
     }
     else if(titolo === "Il Ragazzo" || titolo === "Il Mercenario") {
         tris.style.display = "flex"; controllo.style.display = "none";
-        const fotoSrc = (titolo === "Il Ragazzo") ? "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446403/orfano_yd4ved.png" : "https://res.cloudinary.com/dqoncufhc/image/upload/v1768535131/soldato_ctg4bz.png";
+        var fotoSrc = (titolo === "Il Ragazzo") ? "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446403/orfano_yd4ved.png" : "https://res.cloudinary.com/dqoncufhc/image/upload/v1768535131/soldato_ctg4bz.png";
         tris.innerHTML = `<img src="${fotoSrc}" class="foto-tris" style="width:200px; height:auto; margin-top: 10px;">`;
     }
     else { tris.style.display = "none"; controllo.style.display = "none"; }
@@ -81,28 +79,16 @@ function apri(chiave) {
     document.getElementById('miuModal').style.display = "block";
 }
 
-function chiudi() { 
-    document.getElementById('miuModal').style.display = "none"; 
-}
+function regolaTris(valore) { var foto = document.querySelectorAll('.foto-tris'); foto.forEach(img => { img.style.width = valore + "px"; }); }
+function chiudi() { document.getElementById('miuModal').style.display = "none"; }
+window.onclick = function(event) { if (event.target == document.getElementById('miuModal')) { chiudi(); } }
 
-window.onclick = function(event) { 
-    if (event.target == document.getElementById('miuModal')) { chiudi(); } 
-};
-
-// --- GESTIONE AUDIO E EVENTI ---
 const audioClick = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/click_vtol4d.wav');
-const audioBottiglie = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/bottiglie_yxfq8d.wav');
-
 document.querySelectorAll('.ritratto-box').forEach(v => { 
-    v.addEventListener('click', () => { 
-        audioClick.currentTime = 0; 
-        audioClick.play(); 
-    }); 
+    v.addEventListener('click', () => { audioClick.currentTime = 0; audioClick.play(); }); 
 });
 
+const audioBottiglie = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/bottiglie_yxfq8d.wav');
 document.querySelectorAll('.bottone-bottiglia').forEach(b => { 
-    b.addEventListener('click', () => { 
-        audioBottiglie.currentTime = 0; 
-        audioBottiglie.play(); 
-    }); 
+    b.addEventListener('click', () => { audioBottiglie.currentTime = 0; audioBottiglie.play(); }); 
 });
