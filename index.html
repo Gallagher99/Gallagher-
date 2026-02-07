@@ -45,7 +45,14 @@
         <div class="modal-content">
             <span class="close" onclick="chiudi()">&times;</span>
             <h2 id="titolo-storia"></h2>
-            <div style="text-align:center;"><img id="img-modale" class="img-storia"></div>
+            <div style="text-align:center;">
+                <img id="img-modale" class="img-storia">
+            </div>
+
+            <div id="extra-tatuaggio" style="display:none; text-align:center; margin-top:10px;">
+                <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1770442497/mano-della-cicatrice-44061963_fvopou.jpg" class="img-storia" style="width:220px; height:auto; border-radius: 8px;">
+            </div>
+
             <div id="controllo-tris" style="display:none; text-align:center; margin: 10px 0;">
                 <input type="range" id="slider-tris" min="40" max="200" value="80" oninput="regolaTris(this.value)">
             </div>
