@@ -1,18 +1,4 @@
-L'Enigma Guardingo: Gallagher non parla mai di se stesso. È la personificazione dell'enigmaticità. Ogni sua parola è pesata, ogni suo gesto è calcolato. Non si fida di nessuno, e anche quando sembra amichevole, sta studiando il modo più veloce per neutralizzare chi ha di fronte se le cose dovessero mettersi male.
-Malinconia e Solitudine: È un uomo profondamente solo, condannato dal suo ruolo e dal suo passato. Questa solitudine si manifesta in un carattere schivo, che trova rifugio nel vizio (come il bere o il fumare) e in una filosofia di vita che non prevede lieto fine.
-Fedeltà ai Propri Valori (non alle leggi): Non segue le leggi degli uomini, ma ha un suo codice personale, spesso legato a promesse fatte nel passato (come quella a Rin). Se dà la sua parola, la mantiene, ma lo fa con l'amarezza di chi sa che ogni promessa ha un prezzo di sangue.
-L'Osservatore Silenzioso: Preferisce stare nell'ombra, ai margini della scena. Non vuole essere il protagonista, ma è colui che tira i fili o che "pulisce i disastri" quando tutto è finito.`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo2_ysvgil.png"]
-};
-
-function apri(chiave) {
-    var d = datiGallagher[chiave];
-    if (!d) return;
-
-    var titolo = d[0];
-    var testo = d[1];
-    var immagine = d[2];
-
-    document.getElementconst datiGallagher = {
+const datiGallagher = {
     'bambino': ["Il Bambino", "Storia: Le radici? Le mie sono marcite molto prima che io nascessi. Vengo da terre lontane da Aengard, posti dove il sole non sembra mai scaldare davvero. Mio padre... era un uomo con troppa onore e poca testa. È bastata una lettera firmata da un nobile in una terra remota per portarselo via. È andato a combattere una guerra che non era la sua, ed è tornato sotto forma di un pezzo di carta stropicciato che annunciava la sua morte. Mia madre? Il dolore l'ha trasformata in un guscio vuoto. Mi ha guardato e ha visto solo il fantasma di un uomo morto. Mi ha lasciato al mio destino, Mi ha scaricato sulla strada come si fa con i rifiuti.»", "https://res.cloudinary.com/dqoncufhc/image/upload/v1768575882/giovane_exh64m.png"],
     'ragazzo': ["Il Ragazzo", "Storia: Ho imparato a camminare tra i lupi. Se vuoi sopravvivere alla fame, impari a non sorridere mai. La gente diceva che ero freddo, distaccato... io lo chiamavo non voler morire. Mi sono addestrato finché le mani non hanno smesso di sanguinare. e sono diventato una Lama d'Argento mercenari dell ovest.»", "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ragazzo_faq665.png"],
     'mercenario': ["Il Mercenario", "Storia: Credevo che servire le casate nobili ci desse una dignità. Mi sbagliavo. Eravamo solo cani da guardia con lo stemma lucido. A trent'anni, il mondo mi ha ricordato chi ero davvero. Un'imboscata di quelle sporche. Eravamo circondati, il metallo strideva ovunque. Ho guardato i miei compagni, quelli con cui avevo giurato di morire... e ho visto solo le loro schiene mentre scappavano. Mi hanno venduto per cinque minuti di vita in più. Mi hanno lasciato lì a farmi catturare come un animale. Ma non sapevano che un animale messo all'angolo morde più forte. Sono scappato usando la loro stessa sporca furbizia e ho voltato le spalle a quel passato. Ho tenuto il nome delle Lame d'Argento solo per sputarci sopra ogni volta che lo sento.", "https://res.cloudinary.com/dqoncufhc/image/upload/v1768535131/mercenario_hskhtq.png"],
@@ -118,72 +104,6 @@ function regolaTris(valore) { var foto = document.querySelectorAll('.foto-tris')
 function chiudi() { document.getElementById('miuModal').style.display = "none"; }
 window.onclick = function(event) { if (event.target == document.getElementById('miuModal')) { chiudi(); } }
 
-const audioClick = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/click_vtol4d.wav');
-document.querySelectorAll('.ritratto-box').forEach(v => { 
-    v.addEventListener('click', () => { audioClick.currentTime = 0; audioClick.play(); }); 
-});
-
-const audioBottiglie = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/bottiglie_yxfq8d.wav');
-document.querySelectorAll('.bottone-bottiglia').forEach(b => { 
-    b.addEventListener('click', () => { audioBottiglie.currentTime = 0; audioBottiglie.play(); }); 
-});
-ById('titolo-storia').innerText = titolo;
-    document.getElementById('testo-storia').innerText = testo;
-
-    var f = document.getElementById('img-modale');
-    
-    // Rimuove la cicatrice extra se presente da clic precedenti
-    var extra = document.getElementById('img-extra');
-    if (extra) { extra.remove(); }
-
-    if (immagine) {
-        f.src = immagine;
-        f.style.display = "block";
-        
-        // SE è il tatuaggio, creiamo l'immagine extra sotto
-        if (chiave === 'tatuaggio') {
-            var img2 = document.createElement('img');
-            img2.id = 'img-extra';
-            img2.src = "https://res.cloudinary.com/dqoncufhc/image/upload/v1770442497/mano-della-cicatrice-44061963_fvopou.jpg";
-            img2.className = "img-storia";
-            img2.style.marginTop = "10px";
-            f.parentNode.insertBefore(img2, f.nextSibling);
-        }
-    } else {
-        f.style.display = "none";
-    }
-    
-    var tris = document.getElementById('contenitore-tris');
-    var controllo = document.getElementById('controllo-tris');
-    
-    if(titolo === 'Il Bambino') {
-        tris.style.display = "flex"; controllo.style.display = "none";
-        tris.innerHTML = `
-            <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446390/madre_pz7exh.jpg" class="foto-tris" style="width:90px; height:130px; object-fit:cover; margin: 0 2px;">
-            <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768575858/bambino_gjx98z.png" class="foto-tris" style="width:90px; height:130px; object-fit:cover; margin: 0 2px;">
-            <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446403/padre_ebpoxy.jpg" class="foto-tris" style="width:90px; height:130px; object-fit:cover; margin: 0 2px;">`;
-    } 
-    else if(titolo === "L'Anziano") {
-        tris.style.display = "flex"; controllo.style.display = "none";
-        tris.innerHTML = `
-            <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768535131/incontro_wplvdz.png" class="foto-tris" style="width:140px; height:180px; object-fit:cover; margin-right: 5px;">
-            <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1768446390/candela_ahabqh.gif" class="foto-tris" style="width:140px; height:180px; object-fit:cover; margin-left: 5px;">`;
-    }
-    else if(titolo === "Il Ragazzo" || titolo === "Il Mercenario") {
-        tris.style.display = "flex"; controllo.style.display = "none";
-        var fotoSrc = (titolo === "Il Ragazzo") ? "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446403/orfano_yd4ved.png" : "https://res.cloudinary.com/dqoncufhc/image/upload/v1768535131/soldato_ctg4bz.png";
-        tris.innerHTML = `<img src="${fotoSrc}" class="foto-tris" style="width:200px; height:auto; margin-top: 10px;">`;
-    }
-    else { tris.style.display = "none"; controllo.style.display = "none"; }
-    
-    document.getElementById('miuModal').style.display = "block";
-}
-
-function regolaTris(valore) { var foto = document.querySelectorAll('.foto-tris'); foto.forEach(img => { img.style.width = valore + "px"; }); }
-function chiudi() { document.getElementById('miuModal').style.display = "none"; }
-window.onclick = function(event) { if (event.target == document.getElementById('miuModal')) { chiudi(); } }
-
-// SEZIONE AUDIO ORIGINALE
 const audioClick = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/click_vtol4d.wav');
 document.querySelectorAll('.ritratto-box').forEach(v => { 
     v.addEventListener('click', () => { audioClick.currentTime = 0; audioClick.play(); }); 
