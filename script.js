@@ -7,9 +7,9 @@ const datiGallagher = {
 
 Cicatrici: Porta una cicatrice ampia e lunga, visibile e riconoscibile, che attraversa la mano destra.`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446411/tatuaggio_vspdxd.jpg"],
     'aspecto': ["Aspetto Fisico", `Corporatura: È un uomo dall'ossatura robusta e dalla presenza imponente, ma non massiccia in senso atletico. La sua figura trasmette un senso di pesantezza e solidità, come quella di un veterano che ha passato anni sotto le armi o a svolgere lavori logoranti. Ha una postura leggermente incurvata, tipica di chi porta un peso invisibile sulle spalle.
-Altezza: È decisamente alto, sopra la media, il che lo rende una figure che non passa inosservata nonostante cerchi di confondersi tra la folla o nell'ombra.
+Altezza: È decisamente alto, sopra la media, il che lo rende una figura che non passa inosservata nonostante cerchi di confondersi tra la folla o nell'ombra.
 Viso e Tratti Sommatici: Il volto è segnato e stanco. Ha lineamenti decisi ma appesantiti da occhiaie profonde e una perenne espressione di disillusione. La mascella è spesso coperta da una barba incolta e trascurata (una "stubble" di più giorni) che accentua il suo aspetto trasandato e ruvido.
-Capelli: I capelli sono scuri, corvini, e spesso appiono spettinati o poco curati, cadendo sul viso in modo disordinato. Questo contribuisce alla sua immagine di uomo che ha smesso di preoccuparsi delle apparenze da molto tempo.
+Capelli: I capelli sono scuri, corvini, e spesso appaiono spettinati o poco curati, cadendo sul viso in modo disordinato. Questo contribuisce alla sua immagine di uomo che ha smesso di preoccuparsi delle apparenze da molto tempo.
 Occhi: Lo sguardo è il suo tratto più distintivo. Sono occhi carichi di malinconia e stanchezza, che sembrano aver visto troppo. Raramente mostrano scintille di vitalità; solitamente sono socchiusi, vigili ma privi di entusiasmo.`, "https://res.cloudinary.com/dqoncufhc/image/upload/v1768446404/ricordo_znoads.png"],
     'carattere': ["Il Carattere", `L’Uomo del "Vero e Falso": Gallagher è intrinsecamente un bugiardo, ma non per malvagità. Lui stesso si definisce un "impasto di bugie". La sua natura è quella di un uomo che maschera la verità per proteggere segreti più grandi o semplicemente perché la realtà è troppo dolorosa da gestire.
 Stanchezza Esistenziale: Il tratto più profondo dell'originale è il suo essere "stanco del mondo". Non è la stanchezza di chi ha sonno, ma di chi ha vissuto troppo, ha visto troppe civiltà cadere e troppe promesse infrante. Questo lo rende estremamente cinico e disilluso.
@@ -35,16 +35,9 @@ function apri(chiave) {
     var tris = document.getElementById('contenitore-tris');
     var controllo = document.getElementById('controllo-tris');
     
-    // MODIFICA: Link corretto e dimensioni forzate a 400px (come il tatuaggio)
+    // MODIFICA: Solo questa riga è cambiata per gestire la cicatrice nel tuo originale
     var cicatriceDiv = document.getElementById('extra-cicatrice');
-    if(chiave === 'tatuaggio') { 
-        if(cicatriceDiv) {
-            cicatriceDiv.innerHTML = `<img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1770454343/Senza_titolo_4_xfsgbr.png" class="img-storia" style="width:400px; height:auto; border-radius: 8px;">`;
-            cicatriceDiv.style.display = "block"; 
-        }
-    } else { 
-        if(cicatriceDiv) cicatriceDiv.style.display = "none"; 
-    }
+    if(chiave === 'tatuaggio') { if(cicatriceDiv) cicatriceDiv.style.display = "block"; } else { if(cicatriceDiv) cicatriceDiv.style.display = "none"; }
     
     if(titolo === 'Il Bambino') {
         tris.style.display = "flex"; controllo.style.display = "none";
