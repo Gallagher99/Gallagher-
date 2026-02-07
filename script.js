@@ -35,9 +35,16 @@ function apri(chiave) {
     var tris = document.getElementById('contenitore-tris');
     var controllo = document.getElementById('controllo-tris');
     
-    // MODIFICA: Gestione della cicatrice extra (assicurati che l'ID esista nell'HTML)
+    // MODIFICA: Inserimento del nuovo link e forzatura dimensioni identiche all'immagine tatuaggio
     var cicatriceDiv = document.getElementById('extra-cicatrice');
-    if(chiave === 'tatuaggio') { if(cicatriceDiv) cicatriceDiv.style.display = "block"; } else { if(cicatriceDiv) cicatriceDiv.style.display = "none"; }
+    if(chiave === 'tatuaggio') { 
+        if(cicatriceDiv) {
+            cicatriceDiv.innerHTML = `<img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1770454343/Senza_titolo_4_xfsgbr.png" class="img-storia" style="width:100%; max-width:400px; height:auto; border-radius: 8px;">`;
+            cicatriceDiv.style.display = "block"; 
+        }
+    } else { 
+        if(cicatriceDiv) cicatriceDiv.style.display = "none"; 
+    }
     
     if(titolo === 'Il Bambino') {
         tris.style.display = "flex"; controllo.style.display = "none";
