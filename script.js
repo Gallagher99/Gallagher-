@@ -53,22 +53,22 @@ function apri(chiave) {
 
     var f = document.getElementById('img-modale');
     
-    // Rimuoviamo la cicatrice se esisteva già
-    var vecchiaCicatrice = document.getElementById('img-cicatrice');
-    if (vecchiaCicatrice) { vecchiaCicatrice.remove(); }
+    // Rimuove la cicatrice extra se presente da clic precedenti
+    var extra = document.getElementById('img-extra');
+    if (extra) { extra.remove(); }
 
     if (immagine) {
         f.src = immagine;
         f.style.display = "block";
         
-        // Modifica per il tatuaggio: aggiunge l'immagine sotto la prima
+        // SE è il tatuaggio, creiamo l'immagine extra sotto
         if (chiave === 'tatuaggio') {
-            var nuovaImg = document.createElement('img');
-            nuovaImg.id = 'img-cicatrice';
-            nuovaImg.src = "https://res.cloudinary.com/dqoncufhc/image/upload/v1770442497/mano-della-cicatrice-44061963_fvopou.jpg";
-            nuovaImg.className = "img-storia";
-            nuovaImg.style.marginTop = "10px";
-            f.parentNode.insertBefore(nuovaImg, f.nextSibling);
+            var img2 = document.createElement('img');
+            img2.id = 'img-extra';
+            img2.src = "https://res.cloudinary.com/dqoncufhc/image/upload/v1770442497/mano-della-cicatrice-44061963_fvopou.jpg";
+            img2.className = "img-storia";
+            img2.style.marginTop = "10px";
+            f.parentNode.insertBefore(img2, f.nextSibling);
         }
     } else {
         f.style.display = "none";
@@ -104,7 +104,7 @@ function regolaTris(valore) { var foto = document.querySelectorAll('.foto-tris')
 function chiudi() { document.getElementById('miuModal').style.display = "none"; }
 window.onclick = function(event) { if (event.target == document.getElementById('miuModal')) { chiudi(); } }
 
-// Ripristino gestione suoni e click
+// SEZIONE AUDIO ORIGINALE
 const audioClick = new Audio('https://res.cloudinary.com/dqoncufhc/video/upload/v1768446386/click_vtol4d.wav');
 document.querySelectorAll('.ritratto-box').forEach(v => { 
     v.addEventListener('click', () => { audioClick.currentTime = 0; audioClick.play(); }); 
