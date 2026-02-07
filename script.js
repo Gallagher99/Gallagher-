@@ -16,7 +16,7 @@ Rin: (Si siede su un tronco lì vicino, studiandomi mentre le fiamme danzano sul
 Gallagher: (Torno a sedermi, lasciando cadere le braccia sulle ginocchia) «Forse scaccio solo i demoni che mi porto dentro... quelli che non muoiono mai, nemmeno se gli tagli la testa.» (Noto un marchio strano sulla sua spalla, un simbolo antico che brilla al riflesso del fuoco) «Cos'è quel segno sulla tua spalla?»
 Rin: «I demoni, eh? Interessante... Questo?» (Si tocca la spalla con un sorrisetto enigmatico) «Un retaggio di famiglia. Una promessa pesante. Ti interessa davvero?» (Sogghigna).
 Gallagher: (Fisso le braci, sentendo la malinconia pulsarmi nelle tempie come un vecchio debito) «Be', tutti abbiamo qualcosa da raccontare. Di solito sono storie che pesano troppo per restare chiuse in gola.» (Sospira profondamente).
-Rin: «È una story della mia gente, di prima che arrivassimo nell'Aengard. La chiamano la Maschera dei Cacciatori Eterni. È una vecchia leggenda che mi raccontavano per farmi stare buona... vuoi sentirla?»
+Rin: «È una storia della mia gente, di prima che arrivassimo nell'Aengard. La chiamano la Maschera dei Cacciatori Eterni. È una vecchia leggenda che mi raccontavano per farmi stare buona... vuoi sentirla?»
 Gallagher: (Alzo appena lo sguardo, una scintilla di curiosità che vince sulla stanchezza) «Sembra interessante. Di cosa si tratta?»
 Rin: (Inizia a parlare con una voce bassa, quasi ipnotica) «Narra di un lupo e un'agnella. C'era una volta un uomo pallido, dai capelli corvini, che era molto solo. Tutti lo schivavano perché incontrarlo significava la fine. Così, per avere per sempre un amico, ha preso un'ascia e si è diviso in due. Proprio nel mezzo. Così avrebbe avuto per sempre un amico.»
 Gallagher: (Resto immobile, sentendo un brivido scorrermi lungo la schiena che non c'entra col freddo) «Un'ascia... sembra un'assurdità, eppure... c'è qualcosa di familiare in questo schifo.» (Sospiro).
@@ -49,15 +49,23 @@ function apri(chiave) {
     var immagine = d[2];
 
     document.getElementById('titolo-storia').innerText = titolo;
+    var testoCont = document.getElementById('testo-storia');
 
     if(chiave === 'tatuaggio') {
-        document.getElementById('testo-storia').innerHTML = testo + `<div style="text-align:center; margin-top:20px;"><img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1770442497/mano-della-cicatrice-44061963_fvopou.jpg" style="width:248px; height:auto;"></div>`;
+        // Inseriamo entrambe le immagini incolonnate PRIMA del testo
+        testoCont.innerHTML = `
+            <div style="text-align:center; margin-bottom:15px;">
+                <img src="${immagine}" style="width:248px; height:auto; display:block; margin:0 auto 10px;">
+                <img src="https://res.cloudinary.com/dqoncufhc/image/upload/v1770442497/mano-della-cicatrice-44061963_fvopou.jpg" style="width:248px; height:auto; display:block; margin:0 auto;">
+            </div>
+            ${testo}`;
     } else {
-        document.getElementById('testo-storia').innerText = testo;
+        testoCont.innerText = testo;
     }
 
     var f = document.getElementById('img-modale');
-    if(immagine) { f.src = immagine; f.style.display = "block"; } else { f.style.display = "none"; }
+    // Nascondiamo l'immagine standard se è il tatuaggio (perché le abbiamo messe sopra)
+    if(immagine && chiave !== 'tatuaggio') { f.src = immagine; f.style.display = "block"; } else { f.style.display = "none"; }
     
     var tris = document.getElementById('contenitore-tris');
     var controllo = document.getElementById('controllo-tris');
